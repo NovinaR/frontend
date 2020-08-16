@@ -2,7 +2,30 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 
-const routes: Routes = [];
+/**Componenets */
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { HomeComponent } from './home/home.component';
+import { ChequeBookRequestComponent } from './cheque-book-request/cheque-book-request.component';
+import { TransferBetweenAccountsComponent } from './transfer-between-accounts/transfer-between-accounts.component';
+import { TransactionHistoryComponent } from './transaction-history/transaction-history.component';
+import{ EditProfileComponent } from './edit-profile/edit-profile.component';
+import {AuthGuard} from './auth.guard';
+import { TransferHistoryComponent } from './transfer-history/transfer-history.component';
+
+
+const routes: Routes = [
+  { path: 'login', component: LoginComponent},
+  { path: 'register', component: RegisterComponent},
+  {path:'transfer',component:TransferBetweenAccountsComponent},
+  {path:'transactionHistory',component:TransactionHistoryComponent},
+  {path:'chequebookRequest',component:ChequeBookRequestComponent},
+  {path: 'home', component:HomeComponent},
+  {path:'transferHistory',component:TransferHistoryComponent},
+  {path:'editProfile',component:EditProfileComponent},
+  { path: '**', redirectTo: '/login' }
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

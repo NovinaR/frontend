@@ -1,0 +1,39 @@
+
+<br>       
+  <div class="container">
+    <form [formGroup]="requestForm" (ngSubmit)="request()">
+    
+      <div class="col-xs-4" style="left:40%;">
+      <h3>Request Cheque Book</h3>
+      <div class="form-group">
+    <label>Enter your account number</label>
+    <br>
+        <input type="text" class="form-control" maxlength="10" required placeholder="Enter account number" formControlName="accNo" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.accNo.errors }" />
+        <br>
+        <div *ngIf="submitted && fval.accNo.errors" class="invalid-feedback">
+            <div *ngIf="fval.accNo.errors.required">Account number is required</div>
+        </div>
+      </div>
+         
+        <br>
+  
+        <div class="form-group">
+          <label>ChequeBook pages</label>
+          <br>
+          <select id="dropdown-menu" class="form-control" formControlName="pages" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.pages.errors }"  >
+            <option value="20Pages">20</option>
+            <option value="50Pages">50</option>
+            <option value="75Pages">75</option>
+            </select>
+              <br>
+              <div *ngIf="submitted && fval.pages.errors" class="invalid-feedback">
+                  <div *ngIf="fval.pages.errors.required">Number of pages are required</div>
+              </div>
+        </div>
+        
+              <button class="btn btn-info">Submit Request</button>
+    </div>
+  
+  </form>
+</div>
+  
